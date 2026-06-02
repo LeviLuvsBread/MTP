@@ -70,23 +70,33 @@ Display type is Playfair Display; UI type is Inter (both via `next/font`).
 
 ---
 
-## Deploying
+## Deploying (cPanel / Apache static hosting)
 
-### Recommended: Vercel (domain at Namecheap)
+This project is configured for **static export** (`output: 'export'` in
+[`next.config.mjs`](next.config.mjs)), so it runs on standard cPanel shared hosting — no Node server.
 
-1. Push this repo to GitHub.
-2. Import it at [vercel.com/new](https://vercel.com/new) — zero config; Vercel detects Next.js.
-3. In Vercel → **Project → Settings → Environment Variables**, no variables are required for v1.
-4. Buy the domain at Namecheap, then in **Vercel → Domains** add `meridiantrustpartners.com`
-   and follow Vercel's DNS instructions (either set Namecheap nameservers to Vercel's, or add the
-   A/CNAME records Vercel provides). SSL provisions automatically.
-5. Update `siteConfig.url` in [`lib/site.ts`](lib/site.ts) to the final domain so OG tags,
-   canonical URLs, sitemap, and robots resolve correctly.
+1. Build the static site:
+   ```bash
+   npm run build
+   ```
+   This produces an **`out/`** folder of plain HTML/CSS/JS — plus `.htaccess`, `sitemap.xml`,
+   `robots.txt`, the favicon, and the OG image.
+2. Upload the **contents of `out/`** (not the folder itself) into `public_html` via cPanel File
+   Manager or FTP. **Include the hidden `.htaccess`** (enable "Show Hidden Files" in File Manager) —
+   it handles the branded 404, the `/privacy` & `/terms` redirects, image MIME types, gzip, and
+   caching.
+3. Point your domain at the hosting account in Namecheap DNS, then enable **AutoSSL** in cPanel for
+   HTTPS.
+4. Set `siteConfig.url` in [`lib/site.ts`](lib/site.ts) to your live domain, then rebuild and
+   re-upload so OG tags, canonical URLs, and the sitemap use the correct address.
 
-> Namecheap **shared cPanel hosting cannot run Next.js** (no Node SSR). If you must host there,
-> switch to a static export (`output: 'export'` in `next.config.mjs`, set `images.unoptimized`),
-> then upload `out/` to `public_html`. You lose image optimization and dynamic OG. Vercel is the
-> better path in every measurable way.
+**Static-export trade-offs (by design):** no `next/image` optimization (images load directly from
+Unsplash at sized URLs), and no server-side redirects/headers (handled in `.htaccess`). The UI-only
+forms and all animations work fine as static files.
+
+> Want zero-maintenance hosting instead? The same repo deploys to **Vercel** in one click (running
+> the full Next.js app with image optimization). To switch, remove `output: 'export'` and
+> `images.unoptimized` from `next.config.mjs`.
 
 ### Wiring up the forms later
 

@@ -1,0 +1,37 @@
+# Meridian Trust Partners — Apache config for cPanel static hosting
+
+# Don't let Apache guess extensions; we ship folder/index.html routes.
+Options -MultiViews
+
+# Branded 404 (Next exports the not-found page to /404.html)
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # Legacy redirects (static export can't do server-side redirects)
+  RewriteRule ^privacy/?$ /legal/privacy/ [R=301,L]
+  RewriteRule ^terms/?$ /legal/terms/ [R=301,L]
+</IfModule>
+
+# Next writes the OG + apple-touch images without a file extension; force PNG MIME.
+<Files "opengraph-image">
+  ForceType image/png
+</Files>
+<Files "apple-icon">
+  ForceType image/png
+</Files>
+
+# Gzip text assets
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json image/svg+xml application/xml
+</IfModule>
+
+# Caching: hashed Next assets are immutable; HTML should revalidate
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|woff2?)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
