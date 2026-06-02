@@ -8,7 +8,6 @@ export const financialServiceSchema = {
   legalName: siteConfig.legalName,
   url: siteConfig.url,
   description: siteConfig.description,
-  telephone: siteConfig.phone,
   email: siteConfig.email,
   slogan: siteConfig.tagline,
   areaServed: { '@type': 'Country', name: 'United States' },

@@ -38,8 +38,8 @@ export function CtaApply() {
               <Button href="/apply" variant="primary" size="lg">
                 Apply Now
               </Button>
-              <Button href={siteConfig.phoneHref} variant="ghostLight" size="lg">
-                Call {siteConfig.phone}
+              <Button href="/contact" variant="ghostLight" size="lg">
+                Contact us
               </Button>
             </div>
           </FadeUp>

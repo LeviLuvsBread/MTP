@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
 import { easeOut } from '@/lib/motion';
-import { siteConfig } from '@/lib/site';
 
 export function SuccessScreen({ reference }: { reference: string }) {
   return (
@@ -58,8 +57,8 @@ export function SuccessScreen({ reference }: { reference: string }) {
         <Button href="/" variant="primary" size="md">
           Back to home
         </Button>
-        <Button href={siteConfig.phoneHref} variant="ghost" size="md">
-          Call {siteConfig.phone}
+        <Button href="/contact" variant="ghost" size="md">
+          Contact us
         </Button>
       </div>
 

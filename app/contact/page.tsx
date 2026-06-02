@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Phone, Mail, Clock, MapPin } from 'lucide-react';
+import { Mail, Clock, MapPin } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
 import { PageHero } from '@/components/ui/PageHero';
 import { FadeUp } from '@/components/motion/FadeUp';
@@ -13,13 +13,6 @@ export const metadata: Metadata = {
 };
 
 const methods = [
-  {
-    icon: Phone,
-    label: 'Phone',
-    value: siteConfig.phone,
-    href: siteConfig.phoneHref,
-    detail: 'Speak with an advisor directly',
-  },
   {
     icon: Mail,
     label: 'Email',
@@ -83,7 +76,7 @@ export default function ContactPage() {
             <div className="overflow-hidden rounded-card border border-meridian-platinum/50 shadow-elevated">
               <iframe
                 title="Meridian Trust Partners office location"
-                src="https://www.google.com/maps?q=New+York,+NY+10005&z=14&output=embed"
+                src="https://www.google.com/maps?q=48+Wall+Street,+New+York,+NY+10005&z=15&output=embed"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 className="h-64 w-full grayscale-[0.2]"

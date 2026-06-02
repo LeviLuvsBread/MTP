@@ -22,12 +22,10 @@ export const siteConfig = {
   description:
     'Meridian Trust Partners provides fast, transparent working capital to U.S. businesses — revenue-based financing, lines of credit, and equipment funding.',
   url: 'https://meridiantrustpartners.com',
-  phone: '(800) 555-0142',
-  phoneHref: 'tel:+18005550142',
   email: 'hello@meridiantrustpartners.com',
   emailHref: 'mailto:hello@meridiantrustpartners.com',
   address: {
-    line1: '1 Meridian Plaza, Suite 2200',
+    line1: '48 Wall Street, Suite 1100',
     line2: 'New York, NY 10005',
   },
   hours: 'Mon–Fri · 8:00am–8:00pm ET',

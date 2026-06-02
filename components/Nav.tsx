@@ -8,7 +8,7 @@ import { Menu, X } from 'lucide-react';
 import { Logo } from '@/components/LogoMark';
 import { Button } from '@/components/ui/Button';
 import { Container } from '@/components/ui/Container';
-import { navLinks, siteConfig } from '@/lib/site';
+import { navLinks } from '@/lib/site';
 import { cn } from '@/lib/cn';
 
 /** Routes that render a dark, full-bleed hero behind a transparent nav. */
@@ -118,12 +118,6 @@ export function Nav() {
                 <Button href="/apply" variant="primary" size="lg" onClick={() => setOpen(false)}>
                   Apply Now
                 </Button>
-                <a
-                  href={siteConfig.phoneHref}
-                  className="text-center text-sm text-meridian-steel hover:text-meridian-navy"
-                >
-                  {siteConfig.phone}
-                </a>
               </div>
             </Dialog.Content>
           </Dialog.Portal>

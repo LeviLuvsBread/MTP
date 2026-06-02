@@ -102,11 +102,6 @@ export function Footer() {
               </h2>
               <ul className="mt-5 space-y-3 text-sm text-meridian-platinum/80">
                 <li>
-                  <a href={siteConfig.phoneHref} className="transition-colors hover:text-white">
-                    {siteConfig.phone}
-                  </a>
-                </li>
-                <li>
                   <a href={siteConfig.emailHref} className="transition-colors hover:text-white">
                     {siteConfig.email}
                   </a>

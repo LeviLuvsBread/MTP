@@ -2,7 +2,7 @@ import { Section } from '@/components/ui/Section';
 import { FadeUp } from '@/components/motion/FadeUp';
 import { FaqAccordion } from '@/components/ui/FaqAccordion';
 import { Button } from '@/components/ui/Button';
-import { faqs, siteConfig } from '@/lib/site';
+import { faqs } from '@/lib/site';
 
 export function Faq() {
   return (
@@ -22,9 +22,6 @@ export function Faq() {
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button href="/contact" variant="ghost" size="md">
               Talk to an advisor
-            </Button>
-            <Button href={siteConfig.phoneHref} variant="link">
-              {siteConfig.phone}
             </Button>
           </div>
         </FadeUp>
