@@ -1,0 +1,115 @@
+@import '../styles/tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 0; /* anchor offset handled per-section via scroll-mt (avoids double offset) */
+  }
+
+  body {
+    @apply bg-meridian-ivory text-meridian-navy font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Visible, on-brand focus rings */
+  :focus-visible {
+    outline: 2px solid var(--meridian-gold);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: rgba(184, 146, 74, 0.24);
+    color: var(--meridian-midnight);
+  }
+
+  /* Tabular numerals for stats/rates */
+  .nums {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum';
+  }
+}
+
+@layer components {
+  .container-px {
+    @apply px-6 md:px-12;
+  }
+
+  .hairline {
+    @apply h-px w-full bg-meridian-platinum/60;
+  }
+
+  .gold-rule {
+    @apply h-px w-12 bg-meridian-gold;
+  }
+
+  /* Background texture for navy sections — subtle radial glow + grain feel */
+  .navy-texture {
+    background-color: var(--meridian-midnight);
+    background-image:
+      radial-gradient(
+        60% 80% at 50% -10%,
+        rgba(184, 146, 74, 0.12) 0%,
+        rgba(184, 146, 74, 0) 60%
+      ),
+      radial-gradient(
+        50% 60% at 100% 100%,
+        rgba(11, 30, 63, 0.6) 0%,
+        rgba(6, 18, 42, 0) 70%
+      );
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Faint film-grain overlay usable on hero/navy imagery */
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* Respect reduced-motion across the board */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

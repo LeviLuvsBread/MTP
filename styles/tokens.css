@@ -1,0 +1,18 @@
+/* Brand design tokens — single source of truth for raw color values.
+   Tailwind reads the same hexes from tailwind.config.ts; these CSS vars
+   are available for inline styles, gradients, and one-off usages. */
+:root {
+  --meridian-navy: #0b1e3f;
+  --meridian-midnight: #06122a;
+  --meridian-gold: #b8924a;
+  --meridian-platinum: #c8ced6;
+  --meridian-steel: #6b7280;
+  --meridian-ivory: #f7f8fa;
+  --meridian-white: #ffffff;
+
+  --container-max: 1280px;
+  --gutter-mobile: 24px;
+  --gutter-desktop: 48px;
+
+  --shadow-elevated: 0 24px 60px -20px rgba(11, 30, 63, 0.18);
+}
