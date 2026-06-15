@@ -55,7 +55,7 @@ export const usStates = [
 ] as const;
 
 export const AMOUNT_MIN = 5000;
-export const AMOUNT_MAX = 500000;
+export const AMOUNT_MAX = 2000000;
 export const AMOUNT_STEP = 5000;
 
 export const applySchema = z.object({

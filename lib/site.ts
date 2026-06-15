@@ -157,7 +157,7 @@ export type Faq = { q: string; a: string };
 export const faqs: Faq[] = [
   {
     q: 'How much funding can my business qualify for?',
-    a: 'Funding amounts typically range from $5,000 to $500,000, sized to your monthly revenue and time in business. Your advisor will present options specific to your file.',
+    a: 'Funding amounts typically range from $5,000 to $2,000,000, sized to your monthly revenue and time in business. Your advisor will present options specific to your file.',
   },
   {
     q: 'How fast can I receive funds?',

@@ -9,7 +9,7 @@ import { ImageReveal } from '@/components/motion/ImageReveal';
 import { unsplash, images } from '@/lib/site';
 
 const bullets = [
-  'Funding from $5,000 to $500,000, sized to your revenue',
+  'Funding from $5,000 to $2,000,000, sized to your revenue',
   'Most decisions within 24 hours, funding often same-day',
   'Repayment structured to flex with your cash flow',
   'One dedicated advisor from first call through funding',
